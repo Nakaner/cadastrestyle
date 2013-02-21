@@ -98,7 +98,7 @@ features
 
 properties
 	map-background-color	: #FFFFFF
-	map-background-opacity	: 0
+	map-background-opacity	: 1
 	map-sea-color : #FFFFFF
 	font-family : Verdana
 	text-max-width : 7
@@ -122,6 +122,7 @@ rules
 			define
 				line-style : solid
 				line-color : black
+				line-width : 0.5
 				line-end-cap : square
 				line-start-cap : square
 				font-size : 15:4;18:10;20:14
@@ -147,6 +148,7 @@ rules
 	target : building use*
 		define
 			line-style : solid
+			line-width : 0.5
 			line-color : black
 			line-end-cap : square
 			line-start-cap : square
@@ -215,7 +217,7 @@ rules
 			elseif : *residential
 				define
 					fill-hatch : swne
-					text : "Whs" "\n" [[addr:housenumber]]
+					text : [[addr:housenumber]]
 			else
 				define
 					text : [[addr:housenumber]]
