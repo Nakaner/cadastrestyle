@@ -19,9 +19,7 @@ POIs werden nicht unterstützt.
 Weitere Informationen auf http://wiki.openstreetmap.org/wiki/User:Nakaner/Cadastre_Style
 
 Bekannte Probleme
---------------
-* Die Randlinien der Gebäude sind etwas zu dick bzw. die Schraffurlinien zu dünn. 
-* Ich kenne in Maperitive keine Möglichkeit dies zu ändern.
+-------------- 
 * Wenn man eine SVG mit diesem Style erzeugen möchte, muss man beim Befehl export-svg die Option 
 compatibility=Illustrator wählen.
 * Wenn man die SVG-Datei mit Inkscape in eine PDF konvertiert, sind die Gebäude mit schwarzer Farbe gefüllt 
@@ -51,7 +49,6 @@ More information (German) at http://wiki.openstreetmap.org/wiki/User:Nakaner/Cad
 
 Known Issues
 -------------
-* The border lines of the buildings are too thick and accordingly the hatchures too thin.
 * You have to use the option compatability=Illustrator to render a SVG file.
 * Buildings are filled black if you print or convert the SVG file with Inkscape. 
 Using Firefox for printing and converting to PDF instead.
