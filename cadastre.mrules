@@ -198,7 +198,7 @@ rules
 					text : "Wirtg" "\n" [[addr:housenumber]]
 			elseif : *garage
 				define
-					text : @if([[addr:housenumber]],"Gar" "\n" [[addr:housenumber]], "gar")
+					text : @if([[addr:housenumber]],"Gar" "\n" [[addr:housenumber]], "Gar")
 			elseif : *hangar
 				define
 					text : "Lagg" "\n" [[addr:housenumber]]
