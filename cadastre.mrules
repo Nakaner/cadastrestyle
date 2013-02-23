@@ -92,7 +92,7 @@ features
 		building use roof : building=roof
 		building use public : building=public OR building=civic OR (building=yes AND (amenity=townhall OR amenity=community_center))
 		building use retail : (building=retail) OR (shop)
-		building use kindergarten : building=yes AND amenity=kindergarten
+		building use kindergarten : building=kindergarten OR (building=yes AND amenity=kindergarten)
 		building other: building
 		building unknown : building=yes
 
