@@ -24,13 +24,11 @@
 //   - oneways
 //   - steps
 //   - railway bridges
+//   - administrative boundaries
 
 features
 		
 	lines
-		boundary country : boundary=administrative AND (admin_level=2 OR admin_level=4)
-		boundary province : boundary=administrative AND admin_level=6
-		boundary municipal : boundary=administrative AND admin_level=8
 
 		//highways mapped as lines
 		highway motorway : highway=motorway OR highway=trunk
@@ -56,24 +54,11 @@ features
 		railway disused : disused=yes
 
 	points
-		tree : natural=tree
-		address node : node[addr:housenumber]
-		entrance main : entrance=main
-		entrance yes : entrance=yes
-		entrance service : entrance=service
-		entrance exit : entrance=exit
-		entrance emergency : entrance=emergency		
+		address node : node[addr:housenumber]	
 
 	areas
-		//landuse
-		cementery : landuse = cementery
-		forest : landuse=forest OR natural=wood
-		grass : landuse=grass
-		park : landuse=village_green OR leisure=park
-		quarry : landuse=quarry
 		water lake : landuse=reservoir OR natural=water
 		water riverbank : waterway=riverbank
-		shop : area[shop]
 		
 		//buildings
 		building use residential : building=residential OR building=apartments OR building=dormitory OR building=house OR building=terrace OR building=detached
@@ -94,7 +79,6 @@ features
 		building use retail : (building=retail) OR (shop)
 		building use kindergarten : building=kindergarten OR (building=yes AND amenity=kindergarten)
 		building other: building
-		building unknown : building=yes
 
 properties
 	map-background-color	: #FFFFFF
@@ -108,43 +92,7 @@ properties
 	text-offset-vertical : 0
 	
 rules
-
-
-
 //buildings
-	target : building unknown
-		if : building use*
-			stop
-		elseif : building other
-			define
-				fill-color : red
-		else
-			define
-				line-style : solid
-				line-color : black
-				line-width : 0.5
-				line-end-cap : square
-				line-start-cap : square
-				font-size : 15:4;18:10;20:14
-				min-zoom : 15
-				text-color : black
-				text-halo-width : 2
-				fill-color : black
-				fill-hatch-color : white
-				text-offset-vertical : 15:-2;18:-4.5;20:-7
-				fill-hatch : horizontal
-				text : [[addr:housenumber]]
-			draw : line
-			draw : fill
-			draw : text
-
-//	target : building with address
-//		if : building use*
-//			stop
-//		else
-//			define
-//				text-offset-vertical : 15:-4;18:-9;20:-14
-
 	target : building use*
 		define
 			line-style : solid
@@ -224,6 +172,22 @@ rules
 		
 		draw : line
 		draw : fill
+		draw : text
+
+	target : building other
+		define
+			line-style : solid
+			line-color : black
+			line-width : 0.5
+			line-end-cap : square
+			line-start-cap : square
+			font-size : 15:4;18:10;20:14
+			min-zoom : 15
+			text-color : black
+			text-halo-width : 2
+			text-offset-vertical : 15:-2;18:-4.5;20:-7
+			text : [[addr:housenumber]]
+		draw : line
 		draw : text
 
 //adresses
